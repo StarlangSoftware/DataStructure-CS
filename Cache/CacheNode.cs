@@ -2,8 +2,8 @@ namespace DataStructure.Cache
 {
     public class CacheNode<TKey, TData>
     {
-        private TData data;
-        private TKey key;
+        private readonly TData _data;
+        private readonly TKey _key;
         private CacheNode<TKey, TData> _previous;
         private CacheNode<TKey, TData> _next;
 
@@ -15,8 +15,8 @@ namespace DataStructure.Cache
          */
         public CacheNode(TKey key, TData data)
         {
-            this.key = key;
-            this.data = data;
+            this._key = key;
+            this._data = data;
         }
 
         /**
@@ -26,7 +26,7 @@ namespace DataStructure.Cache
          */
         public TData GetData()
         {
-            return data;
+            return _data;
         }
 
         /**
@@ -36,7 +36,7 @@ namespace DataStructure.Cache
          */
         public TKey GetKey()
         {
-            return key;
+            return _key;
         }
 
         /**

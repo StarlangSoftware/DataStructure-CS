@@ -4,9 +4,9 @@ namespace DataStructure.Cache
 {
     public class LRUCache<TKey, TData>
     {
-        private int cacheSize;
-        private Dictionary<TKey, CacheNode<TKey, TData>> map;
-        private CacheLinkedList<TKey, TData> cache;
+        private readonly int _cacheSize;
+        private readonly Dictionary<TKey, CacheNode<TKey, TData>> _map;
+        private readonly CacheLinkedList<TKey, TData> _cache;
 
         /**
          * A constructor of {@link LRUCache} class which takes cacheSize as input. It creates new {@link CacheLinkedList} and
@@ -16,9 +16,9 @@ namespace DataStructure.Cache
          */
         public LRUCache(int cacheSize)
         {
-            this.cacheSize = cacheSize;
-            cache = new CacheLinkedList<TKey, TData>();
-            map = new Dictionary<TKey, CacheNode<TKey, TData>>();
+            _cacheSize = cacheSize;
+            _cache = new CacheLinkedList<TKey, TData>();
+            _map = new Dictionary<TKey, CacheNode<TKey, TData>>();
         }
 
         /**
@@ -29,7 +29,7 @@ namespace DataStructure.Cache
          */
         public bool Contains(TKey key)
         {
-            return map.ContainsKey(key);
+            return _map.ContainsKey(key);
         }
 
         /**
@@ -43,11 +43,11 @@ namespace DataStructure.Cache
          */
         public TData Get(TKey key)
         {
-            if (map.ContainsKey(key))
+            if (_map.ContainsKey(key))
             {
-                var cacheNode = map[key];
-                cache.Remove(cacheNode);
-                cache.Add(cacheNode);
+                var cacheNode = _map[key];
+                _cache.Remove(cacheNode);
+                _cache.Add(cacheNode);
                 return cacheNode.GetData();
             }
             else
@@ -67,14 +67,14 @@ namespace DataStructure.Cache
          */
         public void Add(TKey key, TData data)
         {
-            if (map.Count == cacheSize)
+            if (_map.Count == _cacheSize)
             {
-                var removed = cache.Remove();
-                map.Remove(removed.GetKey());
+                var removed = _cache.Remove();
+                _map.Remove(removed.GetKey());
             }
             var cacheNode = new CacheNode<TKey, TData>(key, data);
-            cache.Add(cacheNode);
-            map[key] = cacheNode;
+            _cache.Add(cacheNode);
+            _map[key] = cacheNode;
         }
     }
 }
