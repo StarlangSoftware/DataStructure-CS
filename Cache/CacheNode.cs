@@ -7,73 +7,74 @@ namespace DataStructure.Cache
         private CacheNode<TKey, TData> _previous;
         private CacheNode<TKey, TData> _next;
 
-        /**
-         * A constructor of {@link CacheNode} class which takes a key and a data as inputs and initializes private fields with these inputs.
-         *
-         * @param key  K type input for representing keys.
-         * @param data T type input values represented by keys.
-         */
+        ///
+        ///<summary>A constructor of {@link CacheNode} class which takes a key and a data as inputs and initializes
+        /// private fields with these inputs.</summary>
+        ///
+        ///<param name="key">  K type input for representing keys.</param>
+        ///<param name="data"> T type input values represented by keys.</param>
+        ///
         public CacheNode(TKey key, TData data)
         {
             this._key = key;
             this._data = data;
         }
 
-        /**
-         * Getter for data value.
-         *
-         * @return data value.
-         */
+        ///
+        ///<summary>Getter for data value.</summary>
+        ///
+        ///<returns>data value.</returns>
+        ///
         public TData GetData()
         {
             return _data;
         }
 
-        /**
-         * Getter for key value.
-         *
-         * @return key value.
-         */
+        ///
+        ///<summary>Getter for key value.</summary>
+        ///
+        ///<returns>key value.</returns>
+        ///
         public TKey GetKey()
         {
             return _key;
         }
 
-        /**
-         * Getter for the previous CacheNode.
-         *
-         * @return previous CacheNode.
-         */
+        ///
+        ///<summary>Getter for the previous CacheNode.</summary>
+        ///
+        ///<returns>previous CacheNode.</returns>
+        ///
         public CacheNode<TKey, TData> GetPrevious()
         {
             return _previous;
         }
 
-        /**
-         * Getter for the next CacheNode.
-         *
-         * @return next CacheNode.
-         */
+        ///
+        ///<summary>Getter for the next CacheNode.</summary>
+        ///
+        ///<returns>next CacheNode.</returns>
+        ///
         public CacheNode<TKey, TData> GetNext()
         {
             return _next;
         }
 
-        /**
-         * Setter for the previous CacheNode.
-         *
-         * @param previous CacheNode.
-         */
+        ///
+        ///<summary>Setter for the previous CacheNode.</summary>
+        ///
+        ///<param name="previous"> CacheNode.</param>
+        ///
         public void SetPrevious(CacheNode<TKey, TData> previous)
         {
             this._previous = previous;
         }
 
-        /**
-         * Setter for the next CacheNode.
-         *
-         * @param next CacheNode.
-         */
+        ///
+        ///<summary>Setter for the next CacheNode.</summary>
+        ///
+        ///<param name="next"> CacheNode.</param>
+        ///
         public void SetNext(CacheNode<TKey, TData> next)
         {
             this._next = next;
