@@ -5,3 +5,6 @@
 /obj/Debug/netcoreapp2.2/DataStructure.csproj.FileListAbsolute.txt
 /obj/Debug/netcoreapp2.2/DataStructure.dll
 /obj/Debug/netcoreapp2.2/DataStructure.pdb
+DataStructure.csproj
+DataStructure.sln
+.idea/.idea.DataStructure/.idea/.gitignore
