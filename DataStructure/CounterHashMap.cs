@@ -17,7 +17,7 @@ namespace DataStructure
         {
             if (ContainsKey(key))
             {
-                Add(key, this[key] + 1);
+                this[key] = this[key] + 1;
             }
             else
             {
@@ -37,7 +37,7 @@ namespace DataStructure
         {
             if (ContainsKey(key))
             {
-                Add(key, this[key] + n);
+                this[key] = this[key] + n;
             }
             else
             {
@@ -143,15 +143,15 @@ namespace DataStructure
         ///<param name="n"> Integer value for defining size of the sublist.</param>
         ///<returns>a sublist of N element.</returns>
         ///
-        public ArrayList TopN(int n)
+        public List<KeyValuePair<TKey, int>> TopN(int n)
         {
-            var result = new ArrayList();
+            var result = new List<KeyValuePair<TKey, int>>();
             foreach (var entry in this)
             {
                 result.Add(entry);
             }
 
-            result.Sort();
+            result = result.OrderByDescending(x => x.Value).ToList();
             return result.GetRange(0, n);
         }
 
