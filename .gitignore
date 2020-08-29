@@ -137,3 +137,9 @@ DataStructure.sln
 /Test/bin/Debug/netcoreapp3.1/Test.runtimeconfig.dev.json
 /Test/bin/Debug/netcoreapp3.1/Test.runtimeconfig.json
 /Test/bin/Debug/netcoreapp3.1/testhost.dll
+DataStructure/bin/Debug/NlpToolkit-DataStructure.1.0.0.nupkg
+DataStructure/obj/rider.project.restore.info
+DataStructure/obj/Debug/NlpToolkit-DataStructure.1.0.0.nuspec
+DataStructure/obj/Debug/netcoreapp2.2/.NETCoreApp,Version=v2.2.AssemblyAttributes.cs
+Test/obj/rider.project.restore.info
+Test/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
