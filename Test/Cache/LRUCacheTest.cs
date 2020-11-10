@@ -65,5 +65,23 @@ namespace Test.Cache
 
             Assert.AreEqual(0.632, count / 1000000.0, 0.001);
         }
+        
+        [Test]
+        public void Test5() {
+            var random = new Random();
+            var cache = new LRUCache<int, int>(1000000);
+            for (var i = 0; i < 1000000; i++){
+                cache.Add(i, i);
+            }
+            for (var j = 0; j < 100; j++) {
+                var time1 = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+                for (var i = 0; i < 1000000; i++) {
+                    var data = random.Next(1000000) + 1000000;
+                    cache.Add(data, data);
+                }
+                Console.WriteLine(DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond - time1);
+            }
+        }
+
     }
 }
