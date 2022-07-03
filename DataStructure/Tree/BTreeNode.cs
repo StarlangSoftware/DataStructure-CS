@@ -42,7 +42,7 @@ namespace DataStructure.Tree
             }
             else
             {
-                for (int i = 0; i < m; i++)
+                for (var i = 0; i < m; i++)
                 {
                     if (comparator.Compare(value, K[i]) <= 0)
                     {
@@ -56,7 +56,7 @@ namespace DataStructure.Tree
 
         private void InsertIntoK(int index, T insertedK)
         {
-            for (int i = m; i > index; i--)
+            for (var i = m; i > index; i--)
             {
                 K[i] = K[i - 1];
             }
@@ -66,7 +66,7 @@ namespace DataStructure.Tree
 
         private void MoveHalfOfTheKToNewNode(BTreeNode<T> newNode)
         {
-            for (int i = 0; i < d; i++)
+            for (var i = 0; i < d; i++)
             {
                 newNode.K[i] = K[i + d + 1];
                 K[i + d + 1] = default;
@@ -77,7 +77,7 @@ namespace DataStructure.Tree
 
         private void MoveHalfOfTheChildrenToNewNode(BTreeNode<T> newNode)
         {
-            for (int i = 0; i < d; i++)
+            for (var i = 0; i < d; i++)
             {
                 newNode.children[i] = children[i + d + 1];
                 children[i + d + 1] = null;
