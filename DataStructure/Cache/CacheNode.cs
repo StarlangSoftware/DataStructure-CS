@@ -16,8 +16,8 @@ namespace DataStructure.Cache
         ///
         public CacheNode(TKey key, TData data)
         {
-            this._key = key;
-            this._data = data;
+            _key = key;
+            _data = data;
         }
 
         ///
@@ -67,7 +67,7 @@ namespace DataStructure.Cache
         ///
         public void SetPrevious(CacheNode<TKey, TData> previous)
         {
-            this._previous = previous;
+            _previous = previous;
         }
 
         ///
@@ -77,7 +77,7 @@ namespace DataStructure.Cache
         ///
         public void SetNext(CacheNode<TKey, TData> next)
         {
-            this._next = next;
+            _next = next;
         }
     }
 }

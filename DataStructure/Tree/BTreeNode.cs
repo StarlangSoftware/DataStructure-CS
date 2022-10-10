@@ -1,14 +1,13 @@
-using System;
 using System.Collections.Generic;
 
 namespace DataStructure.Tree
 {
     public class BTreeNode<T>
     {
-        internal T[] K;
+        internal readonly T[] k;
         internal int m;
         internal int d;
-        internal Boolean leaf;
+        internal bool leaf;
         internal BTreeNode<T>[] children;
 
         public BTreeNode(int d)
@@ -16,7 +15,7 @@ namespace DataStructure.Tree
             m = 0;
             this.d = d;
             leaf = true;
-            K = new T[2 * d + 1];
+            k = new T[2 * d + 1];
             children = new BTreeNode<T>[2 * d + 1];
         }
 
@@ -26,7 +25,7 @@ namespace DataStructure.Tree
             m = 1;
             children[0] = firstChild;
             children[1] = secondChild;
-            K[0] = newK;
+            k[0] = newK;
         }
 
         public int Position(T value, Comparer<T> comparator)
@@ -36,7 +35,7 @@ namespace DataStructure.Tree
                 return 0;
             }
 
-            if (comparator.Compare(value, K[m - 1]) > 0)
+            if (comparator.Compare(value, k[m - 1]) > 0)
             {
                 return m;
             }
@@ -44,7 +43,7 @@ namespace DataStructure.Tree
             {
                 for (var i = 0; i < m; i++)
                 {
-                    if (comparator.Compare(value, K[i]) <= 0)
+                    if (comparator.Compare(value, k[i]) <= 0)
                     {
                         return i;
                     }
@@ -58,18 +57,18 @@ namespace DataStructure.Tree
         {
             for (var i = m; i > index; i--)
             {
-                K[i] = K[i - 1];
+                k[i] = k[i - 1];
             }
 
-            K[index] = insertedK;
+            k[index] = insertedK;
         }
 
         private void MoveHalfOfTheKToNewNode(BTreeNode<T> newNode)
         {
             for (var i = 0; i < d; i++)
             {
-                newNode.K[i] = K[i + d + 1];
-                K[i + d + 1] = default;
+                newNode.k[i] = k[i + d + 1];
+                k[i + d + 1] = default;
             }
 
             newNode.m = d;
@@ -90,7 +89,7 @@ namespace DataStructure.Tree
             MoveHalfOfTheChildrenToNewNode(newNode);
         }
 
-        public BTreeNode<T> InsertNode(T value, Comparer<T> comparator, Boolean isRoot)
+        public BTreeNode<T> InsertNode(T value, Comparer<T> comparator, bool isRoot)
         {
             BTreeNode<T> s, newNode;
             int child;
@@ -109,8 +108,8 @@ namespace DataStructure.Tree
                 return null;
             }
 
-            InsertIntoK(child, children[child].K[d]);
-            children[child].K[d] = default;
+            InsertIntoK(child, children[child].k[d]);
+            children[child].k[d] = default;
             if (m < 2 * d)
             {
                 children[child + 1] = s;
@@ -126,8 +125,8 @@ namespace DataStructure.Tree
                 m = d;
                 if (isRoot)
                 {
-                    var a = new BTreeNode<T>(d, this, newNode, this.K[d]);
-                    this.K[d] = default;
+                    var a = new BTreeNode<T>(d, this, newNode, k[d]);
+                    k[d] = default;
                     return a;
                 }
                 else

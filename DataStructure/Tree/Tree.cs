@@ -4,8 +4,8 @@ namespace DataStructure.Tree
 {
     public class Tree<T>
     {
-        protected TreeNode<T> root = null;
-        protected Comparer<T> comparator;
+        protected TreeNode<T> root;
+        protected readonly Comparer<T> comparator;
 
         public Tree()
         {
@@ -16,7 +16,7 @@ namespace DataStructure.Tree
         }
 
         public TreeNode<T> Search(T value){
-            TreeNode<T> d = root;
+            var d = root;
             while (d != null){
                 if (comparator.Compare(d.data, value) == 0){
                     return d;
@@ -45,7 +45,7 @@ namespace DataStructure.Tree
 
         public void Insert(TreeNode<T> node){
             TreeNode<T> y = null;
-            TreeNode<T> x = root;
+            var x = root;
             while (x != null){
                 y = x;
                 if (comparator.Compare(node.data, x.data) < 0){

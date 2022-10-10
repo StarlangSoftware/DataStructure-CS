@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -65,7 +64,7 @@ namespace DataStructure
         ///
         public int SumOfCounts()
         {
-            return this.Values.Sum();
+            return Values.Sum();
         }
 
         ///
@@ -79,7 +78,7 @@ namespace DataStructure
         {
             var maxCount = 0;
             var maxKey = default(TKey);
-            foreach (var entry in this.Keys)
+            foreach (var entry in Keys)
             {
                 var count = this[entry];
                 if (count > maxCount)
@@ -107,7 +106,7 @@ namespace DataStructure
             var maxCount = 0;
             var total = 0;
             var maxKey = default(TKey);
-            foreach (var entry in this.Keys)
+            foreach (var entry in Keys)
             {
                 var count = this[entry];
                 total += count;
@@ -118,7 +117,7 @@ namespace DataStructure
                 }
             }
 
-            return maxCount / (total + 0.0) > threshold ? maxKey : default(TKey);
+            return maxCount / (total + 0.0) > threshold ? maxKey : default;
         }
 
         ///
@@ -163,7 +162,7 @@ namespace DataStructure
         ///
         public override string ToString()
         {
-            return Keys.Aggregate("", (current, entry) => current + (entry.ToString() + " " + this[entry] + "\n"));
+            return Keys.Aggregate("", (current, entry) => current + entry.ToString() + " " + this[entry] + "\n");
         }
     }
 }

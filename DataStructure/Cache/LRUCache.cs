@@ -53,7 +53,7 @@ namespace DataStructure.Cache
             }
             else
             {
-                return default(TData);
+                return default;
             }
         }
 

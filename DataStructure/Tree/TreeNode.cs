@@ -2,7 +2,7 @@ namespace DataStructure.Tree
 {
     public class TreeNode<T>
     {
-        internal T data;
+        internal readonly T data;
         internal TreeNode<T> left = null;
         internal TreeNode<T> right = null;
 

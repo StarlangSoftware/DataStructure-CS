@@ -23,7 +23,7 @@ namespace DataStructure.Tree
 
         private AvlTreeNode<T> RotateLeft(AvlTreeNode<T> k2)
         {
-            AvlTreeNode<T> k1 = (AvlTreeNode<T>)k2.left;
+            var k1 = (AvlTreeNode<T>)k2.left;
             k2.left = k1.right;
             k1.right = k2;
             k2.height = Math.Max(Height((AvlTreeNode<T>)k2.left), Height((AvlTreeNode<T>)k2.right)) + 1;
@@ -33,7 +33,7 @@ namespace DataStructure.Tree
 
         private AvlTreeNode<T> RotateRight(AvlTreeNode<T> k1)
         {
-            AvlTreeNode<T> k2 = (AvlTreeNode<T>)k1.right;
+            var k2 = (AvlTreeNode<T>)k1.right;
             k1.right = k2.left;
             k2.left = k1;
             k2.height = Math.Max(((AvlTreeNode<T>)k2.left).height, Height((AvlTreeNode<T>)k2.right)) + 1;
@@ -58,7 +58,7 @@ namespace DataStructure.Tree
             int LEFT = 1, RIGHT = 2;
             AvlTreeNode<T> y = null, x = (AvlTreeNode<T>)root, t;
             int dir1 = 0, dir2 = 0;
-            Stack<AvlTreeNode<T>> c = new Stack<AvlTreeNode<T>>();
+            var c = new Stack<AvlTreeNode<T>>();
             while (x != null)
             {
                 y = x;

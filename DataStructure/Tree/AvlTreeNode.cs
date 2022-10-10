@@ -5,7 +5,7 @@ namespace DataStructure.Tree
         internal int height;
 
         public AvlTreeNode(T data) : base(data){
-            this.height = 1;
+            height = 1;
         }
 
     }

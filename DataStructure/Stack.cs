@@ -1,35 +1,30 @@
-using System;
 using System.Collections.Generic;
 
 namespace DataStructure
 {
     public class Stack<T>
     {
-        private List<T> list = new List<T>();
-
-        public Stack(){
-
-        }
+        private readonly List<T> _list = new List<T>();
 
         public void Push(T item){
-            list.Add(item);
+            _list.Add(item);
         }
 
         public T Pop(){
-            if (list.Count > 0)
+            if (_list.Count > 0)
             {
-                T item = list[list.Count - 1]; 
-                list.RemoveAt(list.Count - 1);
+                var item = _list[_list.Count - 1]; 
+                _list.RemoveAt(_list.Count - 1);
                 return item;
             }
             else
             {
-                return default(T);
+                return default;
             }
         }
 
-        public Boolean IsEmpty(){
-            return list.Count == 0;
+        public bool IsEmpty(){
+            return _list.Count == 0;
         }
 
     }

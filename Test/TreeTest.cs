@@ -9,7 +9,7 @@ namespace Test
         [Test]
         public void TestTree()
         {
-            Tree<int> tree = new Tree<int>(Comparer<int>.Default);
+            var tree = new Tree<int>(Comparer<int>.Default);
             tree.Insert(4);
             tree.Insert(6);
             tree.Insert(2);

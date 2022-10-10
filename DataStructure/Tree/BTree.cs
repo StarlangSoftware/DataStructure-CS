@@ -4,28 +4,28 @@ namespace DataStructure.Tree
 {
     public class BTree<T>
     {
-        BTreeNode<T> root = null;
-        Comparer<T> comparator;
-        int d;
+        private BTreeNode<T> _root;
+        private readonly Comparer<T> _comparator;
+        private readonly int _d;
 
         public BTree(int d, Comparer<T> comparator){
-            this.comparator = comparator;
-            this.d = d;
+            _comparator = comparator;
+            _d = d;
         }
 
         public BTreeNode<T> Search(T value){
             int child;
             BTreeNode<T> b;
-            b = root;
+            b = _root;
             while (!b.leaf){
-                child = b.Position(value, comparator);
-                if (child < b.m && b.K[child].Equals(value)){
+                child = b.Position(value, _comparator);
+                if (child < b.m && b.k[child].Equals(value)){
                     return b;
                 }
                 b = b.children[child];
             }
-            child = b.Position(value, comparator);
-            if (child < b.m && b.K[child].Equals(value)){
+            child = b.Position(value, _comparator);
+            if (child < b.m && b.k[child].Equals(value)){
                 return b;
             }
             return null;
@@ -33,20 +33,20 @@ namespace DataStructure.Tree
 
         public void Insert(T data){
             BTreeNode<T> s;
-            if (root == null){
-                root = new BTreeNode<T>(d);
+            if (_root == null){
+                _root = new BTreeNode<T>(_d);
             }
-            if (root.leaf){
-                s = root.InsertLeaf(data, comparator);
+            if (_root.leaf){
+                s = _root.InsertLeaf(data, _comparator);
                 if (s != null){
-                    BTreeNode<T> tmp = root;
-                    root = new BTreeNode<T>(d, tmp, s, tmp.K[d]);
-                    tmp.K[d] = default;
+                    var tmp = _root;
+                    _root = new BTreeNode<T>(_d, tmp, s, tmp.k[_d]);
+                    tmp.k[_d] = default;
                 }
             } else {
-                s = root.InsertNode(data, comparator, true);
+                s = _root.InsertNode(data, _comparator, true);
                 if (s != null){
-                    root = s;
+                    _root = s;
                 }
             }
         }
