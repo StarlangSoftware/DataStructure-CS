@@ -7,7 +7,7 @@
         <Description>DataStructure library</Description>
         <RepositoryUrl>https://github.com/olcaytaner/DataStructure-CS</RepositoryUrl>
         <PackageId>NlpToolkit-DataStructure</PackageId>
-        <PackageVersion>1.0.4</PackageVersion>
+        <PackageVersion>1.0.5</PackageVersion>
     </PropertyGroup>
 
 </Project>
