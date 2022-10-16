@@ -7,11 +7,13 @@ namespace DataStructure.Heap
         private HeapNode<T>[] _array;
         protected Comparer<T> comparator;
         private int _count;
+        private int _n;
 
         public Heap(int n, Comparer<T> comparator)
         {
             _array = new HeapNode<T>[n];
             _count = 0;
+            _n = n;
             this.comparator = comparator;
         }
 
@@ -75,7 +77,10 @@ namespace DataStructure.Heap
 
         public void Insert(T data)
         {
-            _count++;
+            if (_count < _n)
+            {
+                _count++;
+            }
             _array[_count - 1] = new HeapNode<T>(data);
             PercolateUp(_count - 1);
         }
