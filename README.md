@@ -6,7 +6,7 @@ The idea of caching items for fast retrieval goes back nearly to the beginning o
 For Developers
 ============
 
-You can also see [Java](https://github.com/starlangsoftware/DataStructure), [Python](https://github.com/starlangsoftware/DataStructure-Py), [Cython](https://github.com/starlangsoftware/DataStructure-Cy), [Swift](https://github.com/starlangsoftware/DataStructure-Swift), [Js](https://github.com/starlangsoftware/DataStructure-Js), or [C++](https://github.com/starlangsoftware/DataStructure-CPP) repository.
+You can also see [Java](https://github.com/starlangsoftware/DataStructure), [Python](https://github.com/starlangsoftware/DataStructure-Py), [Cython](https://github.com/starlangsoftware/DataStructure-Cy), [Swift](https://github.com/starlangsoftware/DataStructure-Swift), [C](https://github.com/starlangsoftware/DataStructure-C), [Js](https://github.com/starlangsoftware/DataStructure-Js), or [C++](https://github.com/starlangsoftware/DataStructure-CPP) repository.
 
 ## Requirements
 
