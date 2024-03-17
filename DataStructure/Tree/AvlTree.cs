@@ -55,7 +55,7 @@ namespace DataStructure.Tree
 
         public void Insert(AvlTreeNode<T> node)
         {
-            int LEFT = 1, RIGHT = 2;
+            int left = 1, right = 2;
             AvlTreeNode<T> y = null, x = (AvlTreeNode<T>)root, t;
             int dir1 = 0, dir2 = 0;
             var c = new Stack<AvlTreeNode<T>>();
@@ -67,12 +67,12 @@ namespace DataStructure.Tree
                 if (comparator.Compare(node.data, x.data) < 0)
                 {
                     x = (AvlTreeNode<T>)x.left;
-                    dir2 = LEFT;
+                    dir2 = left;
                 }
                 else
                 {
                     x = (AvlTreeNode<T>)x.right;
-                    dir2 = RIGHT;
+                    dir2 = right;
                 }
             }
 
@@ -83,9 +83,9 @@ namespace DataStructure.Tree
                 x.height = Math.Max(Height((AvlTreeNode<T>)x.left), Height((AvlTreeNode<T>)x.right)) + 1;
                 if (Math.Abs(Height((AvlTreeNode<T>)x.left) - Height((AvlTreeNode<T>)x.right)) == 2)
                 {
-                    if (dir1 == LEFT)
+                    if (dir1 == left)
                     {
-                        if (dir2 == LEFT)
+                        if (dir2 == left)
                         {
                             t = RotateLeft(x);
                         }
@@ -96,7 +96,7 @@ namespace DataStructure.Tree
                     }
                     else
                     {
-                        if (dir2 == LEFT)
+                        if (dir2 == left)
                         {
                             t = DoubleRotateRight(x);
                         }
@@ -113,7 +113,7 @@ namespace DataStructure.Tree
             }
         }
 
-        public void Insert(T item)
+        public new void Insert(T item)
         {
             Insert(new AvlTreeNode<T>(item));
         }
